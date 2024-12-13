@@ -1,0 +1,6 @@
+include LICENSE
+include requirements-common.txt
+include requirements-cuda.txt
+include aphrodite/endpoints/kobold/klite.embd
+
+recursive-include kernels *
