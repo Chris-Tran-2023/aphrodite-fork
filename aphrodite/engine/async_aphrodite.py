@@ -516,7 +516,7 @@ class AsyncAphrodite:
                     shortened_token_ids = shortened_token_ids[:self.
                                                               max_log_len]
             logger.info(f"Received request {request_id}: "
-                        f"prompt: {shortened_prompt!r}, "
+                        f"prompt_len: {len(shortened_token_ids)}, "
                         f"sampling_params: {sampling_params}, "
                         f"lora_request: {lora_request}.")
 
