@@ -512,13 +512,18 @@ class AsyncAphrodite:
             if self.max_log_len is not None:
                 if shortened_prompt is not None:
                     shortened_prompt = shortened_prompt[:self.max_log_len]
-                if shortened_token_ids is not None:
-                    shortened_token_ids = shortened_token_ids[:self.
-                                                              max_log_len]
-            logger.info(f"Received request {request_id}: "
-                        f"prompt_len: {len(shortened_token_ids)}, "
-                        f"sampling_params: {sampling_params}, "
-                        f"lora_request: {lora_request}.")
+                # if shortened_token_ids is not None:
+                #     shortened_token_ids = shortened_token_ids[:self.
+                #                                               max_log_len]
+            try:
+                logger.info(f"Received request {request_id}: "
+                            f"prompt_len: {len(shortened_token_ids)}, "
+                            f"sampling_params: {sampling_params}, "
+                            f"lora_request: {lora_request}.")
+            except:
+                logger.info(f"Received request {request_id}: "
+                            f"sampling_params: {sampling_params}, "
+                            f"lora_request: {lora_request}.")
 
         if not self.is_running:
             if self.start_engine_loop:
